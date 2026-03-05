@@ -1,0 +1,158 @@
+{
+  "generated_at": "2026-02-11 21:56",
+  "base_price_per_g": 1450,
+  "sim_weight_g": 50,
+  "stores": [
+    {
+      "id": "hk_harbour_city",
+      "name": "香港 海港城店 (Harbour City)",
+      "city": "香港",
+      "region": "香港",
+      "mall": "海港城 Harbour City",
+      "type_tags": [
+        "老铺黄金专柜",
+        "商场联名活动"
+      ],
+      "fx_discount": 0.91,
+      "coupon_rate": 0.05,
+      "promo_desc": "参与海港城「Always Rewarding」满额回赠：单笔满 HK$10,000 获 HK$500 购物券 （最高可叠加 20 张）；使用指定信用卡（如中银 / 汇丰）可享积分加倍。",
+      "promo_valid_until": "2026-02-28",
+      "restock_note": "春节前补货频率高，投资金条及足金古法饰品到货较集中，具体以门店当日库存为准。",
+      "inventory_tags": [
+        "平安扣（现货）",
+        "古法钻饰（足）"
+      ],
+      "promo_source": "线下活动卡片（你提供的截图），建议同步核对海港城与发卡行官网。",
+      "simulated_final_price": 62676.24999999999
+    },
+    {
+      "id": "hk_times_square",
+      "name": "香港 时代广场店",
+      "city": "香港",
+      "region": "香港",
+      "mall": "铜锣湾 时代广场",
+      "type_tags": [
+        "老铺黄金专柜"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "暂未整理到具体公开活动信息，建议以商场及品牌官方公示为准。",
+      "promo_valid_until": null,
+      "restock_note": "SKP 系列联名款与日常投资金条可能不同步补货，建议提前电话确认。",
+      "inventory_tags": [],
+      "promo_source": "待补充（官网 / 商场活动页面）。",
+      "simulated_final_price": 72500.0
+    },
+    {
+      "id": "macau_galaxy",
+      "name": "澳门 银河店",
+      "city": "澳门",
+      "region": "澳门",
+      "mall": "Galaxy澳门综合度假城",
+      "type_tags": [
+        "老铺黄金专柜"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "暂未整理到具体公开活动信息，建议以商场及品牌官方公示为准。",
+      "promo_valid_until": null,
+      "restock_note": "节假日前后补货相对集中，适合挑选大克重投资款。",
+      "inventory_tags": [],
+      "promo_source": "待补充（官网 / 商场活动页面）。",
+      "simulated_final_price": 72500.0
+    },
+    {
+      "id": "cn_beijing_skp",
+      "name": "北京 SKP 老铺黄金",
+      "city": "北京",
+      "region": "内地SKP",
+      "mall": "北京 SKP",
+      "type_tags": [
+        "老铺黄金旗舰",
+        "高端消费场景"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "根据公开报道，春节及大促期间排队盛况明显，具体价格与活动以 SKP 现场公示为准。",
+      "promo_valid_until": null,
+      "restock_note": "新款古法工艺饰品与生肖限量款通常优先在北京 SKP 上市，排队号建议提前关注小程序。",
+      "inventory_tags": [],
+      "promo_source": "媒体报道与 SKP 相关公开信息，需结合实际门店核实。",
+      "simulated_final_price": 72500.0
+    },
+    {
+      "id": "cn_xian_skp",
+      "name": "西安 SKP 老铺黄金",
+      "city": "西安",
+      "region": "内地SKP",
+      "mall": "西安 SKP",
+      "type_tags": [
+        "老铺黄金专柜"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "报道提及 SKP 系列门店排队热度较高，具体折扣以当地 SKP 公示为准。",
+      "promo_valid_until": null,
+      "restock_note": "节日与周末客流集中，排号建议提早。",
+      "inventory_tags": [],
+      "promo_source": "媒体报道，待补充更细节的官方链接。",
+      "simulated_final_price": 72500.0
+    },
+    {
+      "id": "cn_shenzhen_mixc",
+      "name": "深圳 万象城 老铺黄金",
+      "city": "深圳",
+      "region": "深圳",
+      "mall": "深圳 万象城",
+      "type_tags": [
+        "老铺黄金专柜",
+        "核心商圈"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "暂无明确公开的统一活动信息，通常跟随商场联合促销与品牌档期。",
+      "promo_valid_until": null,
+      "restock_note": "深圳地区投资需求偏强，大克重金条和古法手镯补货频率相对较高。",
+      "inventory_tags": [],
+      "promo_source": "待补充商场与品牌官网链接。",
+      "simulated_final_price": 72500.0
+    },
+    {
+      "id": "cn_guangzhou_taikoo",
+      "name": "广州 太古汇 / 天环广场 老铺黄金",
+      "city": "广州",
+      "region": "广州",
+      "mall": "广州 核心商圈（如太古汇、天环广场等）",
+      "type_tags": [
+        "老铺黄金专柜"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "活动多与商场联动，具体折扣以当地场内公示为准。",
+      "promo_valid_until": null,
+      "restock_note": "工作日补货为主，节庆前夕古法饰品与婚庆套系补货集中。",
+      "inventory_tags": [],
+      "promo_source": "待补充商场与品牌官网链接。",
+      "simulated_final_price": 72500.0
+    },
+    {
+      "id": "cn_hainan_dutyfree",
+      "name": "海南 离岛免税区 老铺黄金",
+      "city": "海南",
+      "region": "海南",
+      "mall": "离岛免税购物城（以实际入驻点位为准）",
+      "type_tags": [
+        "老铺黄金专柜",
+        "离岛免税"
+      ],
+      "fx_discount": null,
+      "coupon_rate": null,
+      "promo_desc": "如有免税或满减政策，以免税城及品牌现场标牌为准。",
+      "promo_valid_until": null,
+      "restock_note": "节假日补货密集，投资金条与礼赠套装款式较丰富。",
+      "inventory_tags": [],
+      "promo_source": "待补充免税城与品牌官网链接。",
+      "simulated_final_price": 72500.0
+    }
+  ]
+}

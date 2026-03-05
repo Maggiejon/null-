@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="老铺黄金全球买金专员手册 — 选品·价格·门店促销" />
+  <title>老铺黄金 · 买金专员手册</title>
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-pale: #F5E6B8;
+      --gold-dim: #8B6914;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(201,168,76,0.18);
+      --text: #E8E0D0;
+      --muted: #9A8F7E;
+      --red: #C0392B;
+      --green: #27AE60;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(160deg, #0d0d0d 0%, #1a1205 60%, #0d0a00 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 20px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge-intel {
+      display: inline-block;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      padding: 3px 12px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      margin-bottom: 5px;
+    }
+    .header .subtitle { color: var(--muted); font-size: 11px; letter-spacing: 1px; }
+    .alert-bar {
+      margin: 14px 0 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(192,57,43,0.12);
+      border: 1px solid rgba(192,57,43,0.35);
+      color: #E74C3C;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .alert-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #E74C3C;
+      animation: blink 1.2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    /* ── Nav Tabs ── */
+    .nav-tabs {
+      display: flex;
+      overflow-x: auto;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tab {
+      flex: 1;
+      padding: 13px 8px;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    .nav-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+
+    /* ── Sections ── */
+    .section { display: none; padding: 0 0 48px; animation: fadeIn 0.25s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── Section Title ── */
+    .sec-title {
+      padding: 18px 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+    .sec-title .icon {
+      width: 30px; height: 30px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .sec-title h2 { font-size: 15px; font-weight: 600; color: var(--gold-light); letter-spacing: 1px; }
+
+    /* ── Card ── */
+    .card {
+      margin: 0 16px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+    }
+    .card-title {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .card p { color: #BFB9AE; font-size: 13px; line-height: 1.8; }
+
+    /* ── Divider ── */
+    .divider { margin: 6px 16px 14px; height: 1px; background: var(--border); }
+
+    /* ── Tag ── */
+    .tag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .tag-gold { background: rgba(201,168,76,0.15); color: var(--gold); }
+    .tag-red  { background: rgba(192,57,43,0.15); color: #E74C3C; }
+    .tag-green{ background: rgba(39,174,96,0.15); color: var(--green); }
+    .tag-blue { background: rgba(41,128,185,0.15); color: #5DADE2; }
+
+    /* ── Highlight ── */
+    .highlight {
+      margin: 0 16px 12px;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 13px;
+      color: var(--gold-pale);
+      line-height: 1.85;
+    }
+    .highlight strong { color: var(--gold-light); }
+
+    .alert-card {
+      margin: 0 16px 12px;
+      background: rgba(192,57,43,0.07);
+      border: 1px solid rgba(192,57,43,0.3);
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 13px;
+      color: #F1948A;
+      line-height: 1.85;
+    }
+    .alert-card strong { color: #E74C3C; }
+
+    /* ── Social Media Feed ── */
+    .social-filter {
+      display: flex;
+      gap: 6px;
+      padding: 0 16px 10px;
+      flex-wrap: wrap;
+    }
+    .sf-btn {
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(154,143,126,0.1);
+      color: var(--gold-dim);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+    .sf-btn.sf-active, .sf-btn:hover {
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      border-color: rgba(201,168,76,0.3);
+    }
+    .social-post {
+      margin: 0 16px 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 14px;
+    }
+    .social-post[data-platform="xhs"]   { border-left: 3px solid rgba(255, 70, 100, 0.5); }
+    .social-post[data-platform="weibo"] { border-left: 3px solid rgba(255, 102, 0, 0.5); }
+    .social-post[data-platform="weixin"]{ border-left: 3px solid rgba(7, 193, 96, 0.5); }
+    .sp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .sp-platform {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+    .sp-platform.xhs    { background: rgba(255,70,100,0.15); color: #FF4664; }
+    .sp-platform.weibo  { background: rgba(255,102,0,0.12);  color: #FF6600; }
+    .sp-platform.weixin { background: rgba(7,193,96,0.12);   color: #07C160; }
+    .sp-time { font-size: 10px; color: var(--gold-dim); }
+    .sp-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 5px;
+    }
+    .sp-title a { color: var(--text); text-decoration: none; }
+    .sp-title a:hover { color: var(--gold); }
+    .sp-preview {
+      font-size: 12px;
+      color: rgba(220,200,160,0.7);
+      line-height: 1.6;
+      margin-bottom: 7px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .sp-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--gold-dim);
+    }
+    .sp-stats { display: flex; gap: 10px; }
+    .sp-link { color: var(--gold); text-decoration: none; }
+    .sp-link:hover { text-decoration: underline; }
+    .sp-tag {
+      display: inline-block;
+      font-size: 9px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .sp-tag-adjust  { background: rgba(231,76,60,0.15);  color: #E74C3C; }
+    .sp-tag-promo   { background: rgba(46,204,113,0.12); color: #2ECC71; }
+    .sp-tag-general { background: rgba(154,143,126,0.12); color: var(--gold-dim); }
+    .social-empty {
+      margin: 16px;
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gold-dim);
+      background: rgba(154,143,126,0.05);
+      border-radius: 10px;
+    }
+
+    /* ── Auto News Feed ── */
+    .news-feed {
+      margin: 0 16px 12px;
+    }
+    .news-feed-title {
+      font-size: 11px;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 2px 6px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(154,143,126,0.1);
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .news-item-title {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .news-item-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .news-item-title a:hover { color: var(--gold); }
+    .news-item-meta {
+      font-size: 10px;
+      color: var(--gold-dim);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+    .news-tag {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+    .news-tag-adjust { background: rgba(231,76,60,0.15); color: #E74C3C; }
+    .news-tag-promo   { background: rgba(46,204,113,0.12); color: #2ECC71; }
+    .news-tag-general { background: rgba(154,143,126,0.15); color: var(--gold-dim); }
+    .news-tag-finance { background: rgba(241,196,15,0.15); color: var(--gold); }
+
+    /* ── Price Ticker ── */
+    .ticker {
+      margin: 0 16px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .ticker-head {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 14px;
+      background: rgba(201,168,76,0.08);
+      border-bottom: 1px solid var(--border);
+    }
+    .ticker-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 1.4s infinite;
+    }
+    .ticker-label { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 2px; }
+    .ticker-date { font-size: 10px; color: var(--muted); margin-left: auto; }
+    .ticker-body { padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; }
+    .ticker-row { display: flex; align-items: baseline; gap: 10px; font-size: 12px; }
+    .t-key { color: var(--muted); flex-shrink: 0; width: 80px; font-size: 11px; }
+    .t-val { color: var(--text); font-weight: 600; }
+    .t-val.red { color: #E74C3C; }
+    .t-val.green { color: var(--green); }
+    .t-val.gold { color: var(--gold); }
+    .t-note { font-size: 10px; color: var(--muted); font-weight: 400; }
+
+    /* ── Product Card ── */
+    .product-card {
+      margin: 0 16px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .product-head {
+      padding: 13px 15px 10px;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 5px;
+    }
+    .product-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    .product-body { padding: 11px 15px 13px; }
+    .product-body ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .product-body li {
+      display: flex; gap: 8px;
+      font-size: 12px; color: #BFB9AE; line-height: 1.6;
+    }
+    .product-body li::before { content: '▸'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .price-range {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 15px;
+      background: rgba(201,168,76,0.05);
+      border-top: 1px solid rgba(201,168,76,0.08);
+    }
+    .price-label { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; }
+    .price-num { font-size: 14px; font-weight: 700; color: var(--gold-light); }
+
+    /* ── Price Table ── */
+    .ptable {
+      margin: 0 16px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .ptable-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+      gap: 8px;
+    }
+    .ptable-row:last-child { border-bottom: none; }
+    .ptable-row.head {
+      background: rgba(201,168,76,0.08);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .ptable-row:not(.head):nth-child(even) { background: rgba(255,255,255,0.015); }
+    .pcol { flex: 1; font-size: 12px; color: var(--text); }
+    .pcol.right { text-align: right; }
+    .pcol.center { text-align: center; }
+
+    /* ── Sub tabs ── */
+    .sub-tabs {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      gap: 7px;
+      padding: 12px 16px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sub-tabs::-webkit-scrollbar { display: none; }
+    .sub-tab {
+      flex: 0 0 auto;
+      padding: 6px 15px;
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sub-tab.active {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .sub-panel { display: none; }
+    .sub-panel.active { display: block; }
+
+    /* ── Store Card ── */
+    .store-card {
+      margin: 0 16px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .store-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 12px 14px 8px;
+      gap: 8px;
+    }
+    .store-name { font-size: 13px; font-weight: 600; color: var(--gold-light); }
+    .store-loc { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .store-status {
+      flex-shrink: 0;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-top: 1px;
+    }
+    .s-live { background: rgba(39,174,96,0.15); color: var(--green); }
+    .s-warn { background: rgba(192,57,43,0.15); color: #E74C3C; }
+    .s-plan { background: rgba(100,100,100,0.12); color: #888; }
+    .store-body {
+      font-size: 12px;
+      color: #9A8F7E;
+      padding: 0 14px 12px;
+      line-height: 1.75;
+    }
+    .store-promo {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 9px 14px;
+      background: rgba(201,168,76,0.04);
+      border-top: 1px solid rgba(201,168,76,0.08);
+    }
+    .promo-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gold);
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .promo-text { font-size: 11px; color: #BFB9AE; line-height: 1.65; }
+
+    /* ── Note Box ── */
+    .note {
+      margin: 0 16px 12px;
+      background: rgba(100,100,100,0.07);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 9px;
+      padding: 11px 13px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 22px 20px 30px;
+      color: var(--muted);
+      font-size: 11px;
+      border-top: 1px solid var(--border);
+      line-height: 1.9;
+    }
+    .footer .logo { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 2px; margin-bottom: 5px; }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="header">
+  <div class="badge-intel">INTEL · 全球买金专员手册</div>
+  <h1>老铺黄金</h1>
+  <div class="subtitle">Laopu Gold · 6181.HK · 选品 · 价格 · 门店促销</div>
+  <div class="alert-bar">
+    <div class="alert-dot"></div>
+    {{ALERT_BAR_TEXT}}
+  </div>
+</div>
+
+<!-- ═══════════════ NAV TABS ═══════════════ -->
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showTab('product', this)">💎 选品参考</div>
+  <div class="nav-tab" onclick="showTab('price', this)">📊 价格情报</div>
+  <div class="nav-tab" onclick="showTab('store', this)">📍 门店促销</div>
+  <div class="nav-tab" onclick="showTab('social', this)">📱 社媒动态</div>
+</div>
+
+
+<!-- ═══════════════ TAB 1：选品参考 ═══════════════ -->
+<div class="section active" id="sec-product">
+
+  <div class="sec-title">
+    <div class="icon">💎</div>
+    <h2>核心产品线与选品建议</h2>
+  </div>
+
+  <div class="highlight">
+    老铺黄金采用<strong>「一口价」定价模式</strong>，不按克重计价，而是按件定价。工艺附加值使其售价约为同等克重素金产品的 3–4 倍。选品核心原则：<strong>优先辨识度高、克重适中、场景通用</strong>的款型。
+  </div>
+
+  <!-- 产品一 -->
+  <div class="product-card">
+    <div class="product-head">
+      <div class="product-name">花丝八宝系列</div>
+      <div class="product-tags">
+        <span class="tag tag-gold">首选</span>
+        <span class="tag tag-green">流通性最强</span>
+        <span class="tag tag-blue">古法黄金饰品</span>
+      </div>
+    </div>
+    <div class="product-body">
+      <ul>
+        <li>品牌标志性产品，全球华人圈识别度最高，是老铺黄金最具代表性的系列</li>
+        <li>工艺采用「花丝镶嵌」非遗技法（2008年列入国家非物质文化遗产名录）</li>
+        <li>克重多在 20–60g 区间，适合佩戴与礼赠双场景</li>
+        <li>在现有二手/转卖市场中，该系列流通相对最活跃，溢价损耗最小</li>
+      </ul>
+    </div>
+    <div class="price-range">
+      <div class="price-label">参考售价区间</div>
+      <div class="price-num">¥ 15,000 — 80,000+</div>
+    </div>
+  </div>
+
+  <!-- 产品二 -->
+  <div class="product-card">
+    <div class="product-head">
+      <div class="product-name">花丝葫芦 / 如意系列</div>
+      <div class="product-tags">
+        <span class="tag tag-gold">次选</span>
+        <span class="tag tag-green">礼赠适配</span>
+        <span class="tag tag-blue">古法黄金饰品</span>
+      </div>
+    </div>
+    <div class="product-body">
+      <ul>
+        <li>传统吉祥寓意，节庆礼赠场景强（春节、婚嫁、乔迁、商务），境外华人复购率高</li>
+        <li>小克重款（20g 以下）便于跨境携带，目标客群更广泛</li>
+        <li>吊坠、手镯、手串品类齐全，入手门槛相对较低，适合触达新客户群体</li>
+      </ul>
+    </div>
+    <div class="price-range">
+      <div class="price-label">参考售价区间</div>
+      <div class="price-num">¥ 8,000 — 40,000</div>
+    </div>
+  </div>
+
+  <!-- 产品三 -->
+  <div class="product-card">
+    <div class="product-head">
+      <div class="product-name">古法黄金钻石饰品</div>
+      <div class="product-tags">
+        <span class="tag tag-blue">高端款</span>
+        <span class="tag tag-red">流通性较低</span>
+      </div>
+    </div>
+    <div class="product-body">
+      <ul>
+        <li>黄金与宝石复合工艺，客单价通常 ¥50,000 起，稀缺款可达数十万</li>
+        <li>买家圈层窄、成交周期长；适合有明确高净值买家需求时精准匹配</li>
+        <li>议价空间极小，非特定场景不建议作为常规流通品持有</li>
+      </ul>
+    </div>
+    <div class="price-range">
+      <div class="price-label">参考售价区间</div>
+      <div class="price-num">¥ 50,000 — 数十万</div>
+    </div>
+  </div>
+
+  <!-- 产品四 -->
+  <div class="product-card">
+    <div class="product-head">
+      <div class="product-name">古法黄金金器（摆件 / 器皿）</div>
+      <div class="product-tags">
+        <span class="tag tag-red">慎选</span>
+        <span class="tag tag-red">流通性极低</span>
+      </div>
+    </div>
+    <div class="product-body">
+      <ul>
+        <li>收藏与礼赠摆件，部分为限量发行，变现时折价幅度通常最大</li>
+        <li>体积大、不便携带，跨境申报风险高，不适合作为流通品</li>
+        <li>仅建议面向有明确收藏需求的终端买家销售，不建议囤货</li>
+      </ul>
+    </div>
+    <div class="price-range">
+      <div class="price-label">参考售价区间</div>
+      <div class="price-num">¥ 20,000 — 不定</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sec-title">
+    <div class="icon">📋</div>
+    <h2>选品优先级速查</h2>
+  </div>
+
+  <div class="ptable">
+    <div class="ptable-row head">
+      <div class="pcol">系列</div>
+      <div class="pcol center">流通性</div>
+      <div class="pcol center">礼赠适配</div>
+      <div class="pcol right">建议</div>
+    </div>
+    <div class="ptable-row">
+      <div class="pcol">花丝八宝</div>
+      <div class="pcol center">★★★★★</div>
+      <div class="pcol center">★★★★</div>
+      <div class="pcol right"><span class="tag tag-gold">首选</span></div>
+    </div>
+    <div class="ptable-row">
+      <div class="pcol">花丝葫芦/如意</div>
+      <div class="pcol center">★★★★</div>
+      <div class="pcol center">★★★★★</div>
+      <div class="pcol right"><span class="tag tag-gold">次选</span></div>
+    </div>
+    <div class="ptable-row">
+      <div class="pcol">金钻复合款</div>
+      <div class="pcol center">★★</div>
+      <div class="pcol center">★★★</div>
+      <div class="pcol right"><span class="tag tag-blue">按需</span></div>
+    </div>
+    <div class="ptable-row">
+      <div class="pcol">金器摆件</div>
+      <div class="pcol center">★</div>
+      <div class="pcol center">★★</div>
+      <div class="pcol right"><span class="tag tag-red">慎选</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    ⚠️ 以上价格区间为市场参考值，实际售价以老铺黄金官方门店及线上旗舰店当日标价为准。品牌采用「一口价」模式，不接受议价。
+  </div>
+
+</div>
+
+
+<!-- ═══════════════ TAB 2：价格情报 ═══════════════ -->
+<div class="section" id="sec-price">
+
+  <div class="sec-title">
+    <div class="icon">📊</div>
+    <h2>金价与品牌定价动态</h2>
+  </div>
+
+  <!-- 调价警报（自动更新） -->
+  {{PRICE_ALERT_CARD}}
+
+  <!-- 今日金价 -->
+  <div class="ticker">
+    <div class="ticker-head">
+      <div class="ticker-dot"></div>
+      <div class="ticker-label">当日金价参考</div>
+      <div class="ticker-date">{{UPDATE_DATE}}</div>
+    </div>
+    <div class="ticker-body">
+      <div class="ticker-row">
+        <span class="t-key">伦敦金现货</span>
+        <span class="t-val">{{GOLD_SPOT}} <span class="t-note">/ 盎司 · {{GOLD_NOTE}}</span></span>
+      </div>
+      <div class="ticker-row">
+        <span class="t-key">上海金 Au99.99</span>
+        <span class="t-val">约¥{{GOLD_CNY}} <span class="t-note">/ 克 · 按当日中间价换算</span></span>
+      </div>
+      <div class="ticker-row">
+        <span class="t-key">美元/人民币</span>
+        <span class="t-val">{{USD_CNY}} <span class="t-note">· 当日汇率参考</span></span>
+      </div>
+      <div class="ticker-row">
+        <span class="t-key">6181.HK</span>
+        <span class="t-val {{HK_COLOR}}">HK${{HK_PRICE}} <span class="t-note">· 涨跌 {{HK_CHANGE}}% · 收盘价</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:0">
+    上海金价按伦敦金现货价 × USD/CNY汇率 ÷ 31.1035 g/oz 估算，供参考。实时价格请查询<strong style="color:var(--gold)">上海黄金交易所 sge.com.cn</strong>。数据更新时间：<strong style="color:var(--gold)">{{UPDATE_DATE}} {{UPDATE_TIME}} CST</strong>（每周五 07:00 自动更新）
+  </div>
+
+  <div class="divider"></div>
+  <div class="sec-title">
+    <div class="icon">📈</div>
+    <h2>老铺黄金定价规律</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-title">提价历史（已核实）</div>
+    <p>2025年品牌完成两次全线提价：<strong style="color:var(--gold)">2月</strong>与<strong style="color:var(--gold)">8月</strong>，全年累计涨幅超17%。2026年首次提价已确认于<strong style="color:#E74C3C">2月28日</strong>执行，此为本年度首次调价。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">定价模式</div>
+    <p>老铺黄金采用<strong style="color:var(--gold)">「一口价」按件定价</strong>，不随金价实时波动。金价上涨后，品牌择机主动上调一口价以覆盖原料成本，提价前通常无公开预告。品牌毛利率约38%（2025年H1财报数据），远高于行业均值。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">二手市场参考回收价</div>
+    <p>二手平台及回收店通常按<strong style="color:var(--gold)">黄金克重 × 当日回收金价</strong>计算，品牌工艺溢价在变现时基本无法体现。2025年实测：奢侈品回收店报价约760–770元/克（按克重）。私下向有品牌认知的买家直售，保留比例优于走回收渠道。</p>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sec-title">
+    <div class="icon">🌐</div>
+    <h2>2025年全球金价背景</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-title">世界黄金协会 · 2025全年报告（2026-01-29 发布）</div>
+    <p>
+      2025年LBMA年均金价 <strong style="color:var(--gold)">$3,431/盎司（+44% YoY）</strong>，全年刷新历史高位 <strong style="color:var(--gold)">53次</strong>；全球黄金总需求价值突破 5,550亿美元（+45%）；央行购金863吨，ETF净流入801吨。持续强势的金价为老铺黄金提价提供了长期外部支撑。
+    </p>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════ TAB 3：门店促销 ═══════════════ -->
+<div class="section" id="sec-store">
+
+  <div class="sec-title">
+    <div class="icon">📍</div>
+    <h2>门店促销动态</h2>
+  </div>
+
+  <!-- 最新动态（自动更新） -->
+  {{PROMO_ALERT_BLOCK}}
+
+  <!-- Sub tabs -->
+  <div class="sub-tabs">
+    <div class="sub-tab active" onclick="showSub('cn', this)">🇨🇳 国内大陆</div>
+    <div class="sub-tab" onclick="showSub('hk', this)">🇭🇰 港澳台</div>
+    <div class="sub-tab" onclick="showSub('global', this)">🌏 全球</div>
+    <div class="sub-tab" onclick="showSub('online', this)">📱 线上旗舰</div>
+  </div>
+
+  <!-- ── 国内大陆 ── -->
+  <div class="sub-panel active" id="sub-cn">
+    <div style="height:12px"></div>
+
+    <div class="highlight">
+      全国<strong>16城41家</strong>直营门店，全部位于SKP、万象城等高端商圈。<strong>2月28日起全线新价格生效</strong>，今日仍为旧价。（来源：公司财报 · 同花顺 2026-02-27）
+    </div>
+
+    <!-- 上海恒隆 作品展 —— 已核实 -->
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">上海恒隆广场旗舰店</div>
+          <div class="store-loc">📍 上海 · 静安区南京西路</div>
+        </div>
+        <div class="store-status s-live">活动进行中</div>
+      </div>
+      <div class="store-body">「传世经典 传世生活——老铺黄金经典作品展」已于2月7日在上海恒隆广场开展。重点展品：<strong>「十二月花神漆器螺钿金杯」</strong>——以足金为胎首创金胎螺钿漆器，取型自清康熙皇家瓷器，融合漆器、螺钿双重非遗工艺。故宫博物院研究馆员张荣出席讲解，称此为宋代金胎漆器的当代首次实物复原。</div>
+      <div class="store-promo">
+        <div class="promo-label">活动性质</div>
+        <div class="promo-text">品牌文化展览 + 高端产品展示，非折扣活动，适合带目标买家体验品牌文化故事，提升购买决策意愿。具体展览时间请直接联系恒隆门店确认。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：北京日报 2026-02-09 · 已核实</div>
+    </div>
+
+    <!-- 调价前市场现象 —— 已核实 -->
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">全国线下门店 · 调价前状态（2月27日）</div>
+          <div class="store-loc">📍 北京 / 上海 / 成都等核心城市</div>
+        </div>
+        <div class="store-status s-warn">今日旧价最后</div>
+      </div>
+      <div class="store-body">据中华网2月18日报道：与2025年调价前排队热潮不同，此轮（2026年2月28日）调价前线下门店相对冷静，部分导购表示一天难开一单。消费者趋向理性——有人选择节后错峰入手（导购冲业绩时偶可谈小幅优惠）；有人转战二手平台收带票闲置，每克便宜约300–400元；有人专攻克重标注清晰的素圈手镯以规避工艺溢价。</div>
+      <div class="store-promo">
+        <div class="promo-label">买金专员参考</div>
+        <div class="promo-text">今日（2月27日）旧价仍有效。若目标款有库存，今日入手可锁定调价前价格。线下门店无官方折扣机制，但月末导购有业绩压力，可尝试询问赠品政策。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：中华网 2026-02-18 · 已核实</div>
+    </div>
+
+    <!-- 北京SKP / 成都SKP -->
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">北京SKP · 成都SKP · 上海IFC</div>
+          <div class="store-loc">📍 全国核心旗舰集群</div>
+        </div>
+        <div class="store-status s-live">正式运营</div>
+      </div>
+      <div class="store-body">三店为品牌销售额最高旗舰，历次新品与限定系列以北京SKP为首发节点。春节销售旺季，华泰证券及中信证券研报（已核实）均提及"多地门店排队盛况再现，线上多款热销产品断货"。具体当前活动以各门店实际公告为准。</div>
+      <div class="store-promo">
+        <div class="promo-label">门店联络</div>
+        <div class="promo-text">微信搜索「老铺黄金」小程序 → 门店导航 → 选择城市，可查看各店地址、电话及当日营业时间。所有门店均为直营，无加盟。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：华泰证券研报 · 中信证券研报 · 已核实</div>
+    </div>
+
+  </div>
+
+  <!-- ── 港澳台 ── -->
+  <div class="sub-panel" id="sub-hk">
+    <div style="height:12px"></div>
+
+    <div class="highlight">
+      香港已有<strong>3家官方直营门店</strong>（海港城 · 广东道 · 中环IFC），澳门有门店布局，台湾暂无官方门店。港店店效较内地高约30%。（来源：香港经济日报 · 已核实）
+    </div>
+
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">香港 · 中环IFC旗舰店</div>
+          <div class="store-loc">📍 香港中环 · 国际金融中心1楼 · 电话：查官网</div>
+        </div>
+        <div class="store-status s-live">直营旗舰</div>
+      </div>
+      <div class="store-body">品牌全球最大单体门店（3,000平方呎），毗邻爱马仕、香奈儿。据2025年10月报道：香港店顾客仍以内地游客为主，本地消费占比相对较低，与新加坡店95%本地客形成对比。</div>
+      <div class="store-promo">
+        <div class="promo-label">当前促销</div>
+        <div class="promo-text">目前未查询到港店的独立线下促销活动信息。港店以港元标价，无税务优势，价格与内地正价基本持平。<strong>天猫"3·8焕新周"大促（满1000减100）不适用于港店</strong>，港店购物建议直接联系门店BA确认是否有会员专属优惠。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：新浪财经 2025-10-10 · 香港经济日报 · 已核实</div>
+    </div>
+
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">香港 · 海港城店 · 广东道店</div>
+          <div class="store-loc">📍 尖沙咀海港城OT214 · 尖沙咀广东道</div>
+        </div>
+        <div class="store-status s-live">直营门店</div>
+      </div>
+      <div class="store-body">海港城店：电话 852-2699-3600，是老铺香港首家门店，旅客客流量高。广东道店：位于奢侈品集中区，邻近LV、Chanel旗舰店。两店均支持内地会员账号跨境使用。</div>
+      <div class="store-promo">
+        <div class="promo-label">当前促销</div>
+        <div class="promo-text">目前未查询到两店独立线下促销活动，具体优惠政策建议直接致电门店或联系BA确认。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：老铺黄金官网 lphj.com · 已核实地址电话</div>
+    </div>
+
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">澳门 · 台湾</div>
+          <div class="store-loc">📍 澳门有门店 · 台湾暂无</div>
+        </div>
+        <div class="store-status s-plan">澳门营业 / 台湾无店</div>
+      </div>
+      <div class="store-body">澳门已有门店（具体地址以官方小程序门店导航为准）。台湾截至2026年2月27日暂无官方门店及公开开店计划，任何台湾渠道售卖均为非官方，建议核实原始购买凭证。</div>
+      <div class="store-promo">
+        <div class="promo-label">查询方式</div>
+        <div class="promo-text">澳门门店地址及营业时间：微信搜索「老铺黄金」小程序 → 门店导航 → 澳门。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── 全球 ── -->
+  <div class="sub-panel" id="sub-global">
+    <div style="height:12px"></div>
+
+    <div class="highlight">
+      全球唯一海外直营旗舰店：<strong>新加坡滨海湾金沙</strong>（2025年6月21日开业），运营数据亮眼。品牌计划2026–2027年在日本、北美、澳洲、中东新增6–9家店。（来源：中邮证券研报 2025-09-03）
+    </div>
+
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">新加坡 · Marina Bay Sands 旗舰店</div>
+          <div class="store-loc">📍 新加坡 · 滨海湾金沙购物中心</div>
+        </div>
+        <div class="store-status s-live">正式运营</div>
+      </div>
+      <div class="store-body">2025年6月21日开业，海外首店。已核实运营数据：周末排队2–3小时，每小时成交4–10单，转化率超95%；客群中95%为本地消费者（50%新加坡华人 + 40%本地人），90%首次接触品牌。与香港店以内地游客为主的客群结构截然不同，真正实现了本地化破圈。</div>
+      <div class="store-promo">
+        <div class="promo-label">当前促销</div>
+        <div class="promo-text">目前未查询到新加坡店独立促销活动信息。以新加坡元标价，<strong>天猫"3·8焕新周"大促不适用</strong>。2月28日内地调价是否同步生效请直接联系门店确认。建议东南亚买金专员到店时携带调价前后价格对比参考，现场询价后决策。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：新浪财经 2025-06-26 · 已核实</div>
+    </div>
+
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">日本 / 北美 / 澳洲 / 中东</div>
+          <div class="store-loc">📍 规划阶段 · 无确认开业信息</div>
+        </div>
+        <div class="store-status s-plan">规划中</div>
+      </div>
+      <div class="store-body">中邮证券2025年9月研报披露，品牌计划2026–2027年新增6–9家境外门店，涵盖上述市场。截至2026年2月27日，尚无任何具体城市、地址或开业时间的官方公告。</div>
+      <div class="store-promo">
+        <div class="promo-label">关注方式</div>
+        <div class="promo-text">开业公告将首发于老铺黄金官方微信公众号及天猫旗舰店。海外买金专员可设置关注提醒，以便第一时间获取开业优惠信息。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── 线上旗舰 ── -->
+  <div class="sub-panel" id="sub-online">
+    <div style="height:12px"></div>
+
+    <!-- 天猫 3.8 大促 —— 核心已确认 -->
+    <div class="store-card" style="border-color:rgba(192,57,43,0.35)">
+      <div class="store-head">
+        <div>
+          <div class="store-name">天猫官方旗舰店 · 3·8焕新周大促</div>
+          <div class="store-loc">🛍️ 老铺黄金官方旗舰店 · tmall.com</div>
+        </div>
+        <div class="store-status s-warn">⏰ 截止3月9日</div>
+      </div>
+      <div class="store-body">
+        <strong style="color:var(--gold-light)">促销内容（已核实）：每满¥1,000减¥100，上不封顶</strong>（约相当于9折）<br><br>
+        活动时间：2026年2月26日 – 3月9日<br>
+        每日 14:00 / 20:00 定时上架补货<br><br>
+        <strong style="color:#E74C3C">重要：2月28日起全线调价，活动满减将在新价格基础上计算，相当于新价格打折。</strong>
+      </div>
+      <div class="store-promo">
+        <div class="promo-label">战绩数据</div>
+        <div class="promo-text">2月26日（活动开启首日）14:00开卖仅1秒，成交额即突破3亿元；全天单店成交<strong>破10亿元</strong>，同比百倍增长。62.75万元花丝真言金碗、50万元鸳鸯和合摆件、30万元金蟾等足金摆件10分钟内售罄，全场超30款单品上架即售罄。</div>
+      </div>
+      <div style="padding:0 14px 10px; font-size:10px; color:var(--gold-dim)">来源：证券时报 2026-02-27 17:22 · 已核实</div>
+    </div>
+
+    <div class="store-card">
+      <div class="store-head">
+        <div>
+          <div class="store-name">微信小程序官方旗舰</div>
+          <div class="store-loc">🟢 微信搜索「老铺黄金」</div>
+        </div>
+        <div class="store-status s-live">主力渠道</div>
+      </div>
+      <div class="store-body">品牌核心线上渠道，VIP会员专属功能集中于此。线上收入约占品牌总营收10%–13%（公司财报数据）。小程序活动与天猫活动独立，具体促销以小程序内实时公告为准。<br><br>
+      <strong style="color:#E74C3C">注意：2月28日调价后，小程序标价将同步更新为新价格。</strong></div>
+      <div class="store-promo">
+        <div class="promo-label">使用建议</div>
+        <div class="promo-text">今日（2月27日）旧价最后机会，天猫"满1000减100"活动力度优于小程序直购，建议优先通过天猫渠道下单以享受折扣。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      ⚠️ 线上渠道购买说明：天猫、小程序等线上渠道仅面向中国大陆买家配送，不支持国际直邮。境外买金专员需通过香港（3家直营）或新加坡（1家直营）实体门店采购，或委托大陆合规渠道代购。
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ═══════════════ TAB 4：社媒动态 ═══════════════ -->
+<div class="section" id="sec-social">
+
+  <div class="sec-title">
+    <div class="icon">📱</div>
+    <h2>社媒动态追踪</h2>
+  </div>
+
+  <div class="highlight" style="font-size:12px">
+    自动追踪 <strong>小红书 · 微博 · 微信公众号</strong> 关于老铺黄金的最新内容，包含调价讨论、促销情报、买家真实反馈。每周五 07:00 自动更新。
+  </div>
+
+  <!-- 平台筛选 -->
+  <div class="social-filter">
+    <span class="sf-btn sf-active" onclick="filterSocial('all', this)">全部</span>
+    <span class="sf-btn" onclick="filterSocial('xhs', this)">📕 小红书</span>
+    <span class="sf-btn" onclick="filterSocial('weibo', this)">🔵 微博</span>
+    <span class="sf-btn" onclick="filterSocial('weixin', this)">💚 微信</span>
+  </div>
+
+  <!-- 自动填充的帖子列表 -->
+  <div class="social-feed" id="social-feed">
+    {{SOCIAL_TAB_CONTENT}}
+  </div>
+
+  <div class="note" style="margin-top:8px;font-size:10px">
+    内容来源：小红书搜索 / 微博搜索 / 搜狗微信索引。部分平台需登录查看完整内容，点击「查看原文」跳转原平台。
+  </div>
+
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer">
+  <div class="logo">老铺黄金 · 全球买金专员手册</div>
+  <div>数据来源：公司财报 · 同花顺 · 中邮证券 · 世界黄金协会 · 新浪财经 · 香港经济日报</div>
+  <div>所有信息均有明确来源，不含未经核实的推测性内容</div>
+  <div style="margin-top:4px;color:rgba(154,143,126,0.6)">仅供专业参考，不构成投资建议</div>
+  <div style="margin-top:4px;color:rgba(154,143,126,0.45);font-size:10px">金价数据最后更新：{{UPDATE_DATE}} {{UPDATE_TIME}} CST · 每周五 07:00 自动刷新</div>
+</div>
+
+<script>
+  function showTab(name, el) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('sec-' + name).classList.add('active');
+    el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function showSub(name, el) {
+    const sec = el.closest('.section');
+    sec.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+    sec.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('sub-' + name).classList.add('active');
+    el.classList.add('active');
+  }
+  function filterSocial(platform, el) {
+    document.querySelectorAll('.sf-btn').forEach(b => b.classList.remove('sf-active'));
+    el.classList.add('sf-active');
+    document.querySelectorAll('#social-feed .social-post').forEach(post => {
+      post.style.display = (platform === 'all' || post.dataset.platform === platform) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
